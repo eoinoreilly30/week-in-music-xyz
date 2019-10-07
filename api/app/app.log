@@ -1,0 +1,483 @@
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "check_is_playing" to job store "default"
+INFO:apscheduler.scheduler:Added job "email_scheduler" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:31 UTC)" (scheduled at 2019-10-07 15:58:31.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.024s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:41 UTC)" (scheduled at 2019-10-07 15:58:36.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:41 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:46 UTC)" (scheduled at 2019-10-07 15:58:41.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.005s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:46 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+ERROR:routes:Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/eoin/.local/lib/python2.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/eoin/.local/lib/python2.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/eoin/.local/lib/python2.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/eoin/.local/lib/python2.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: signup() takes exactly 1 argument (0 given)
+INFO:werkzeug:127.0.0.1 - - [07/Oct/2019 16:58:42] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [07/Oct/2019 16:58:42] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:51 UTC)" (scheduled at 2019-10-07 15:58:46.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:51 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:56 UTC)" (scheduled at 2019-10-07 15:58:51.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:58:56 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:01 UTC)" (scheduled at 2019-10-07 15:58:56.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.005s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:01 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:06 UTC)" (scheduled at 2019-10-07 15:59:01.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:06 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:11 UTC)" (scheduled at 2019-10-07 15:59:06.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:11 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:16 UTC)" (scheduled at 2019-10-07 15:59:11.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:16 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:21 UTC)" (scheduled at 2019-10-07 15:59:16.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:21 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:26 UTC)" (scheduled at 2019-10-07 15:59:21.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.005s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:26 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:31 UTC)" (scheduled at 2019-10-07 15:59:26.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:31 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:36 UTC)" (scheduled at 2019-10-07 15:59:31.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.005s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:41 UTC)" (scheduled at 2019-10-07 15:59:36.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:41 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:46 UTC)" (scheduled at 2019-10-07 15:59:41.277447+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 15:59:46 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "check_is_playing" to job store "default"
+INFO:apscheduler.scheduler:Added job "email_scheduler" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:13 UTC)" (scheduled at 2019-10-07 16:01:08.254803+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.028s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:13 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:18 UTC)" (scheduled at 2019-10-07 16:01:13.254803+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.005s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:18 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:23 UTC)" (scheduled at 2019-10-07 16:01:18.254803+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:23 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:root:Signing up daily:eoinoreilly30@gmail.com
+INFO:werkzeug:127.0.0.1 - - [07/Oct/2019 17:01:18] "GET /signup/daily:eoinoreilly30@gmail.com HTTP/1.1" 302 -
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:28 UTC)" (scheduled at 2019-10-07 16:01:23.254803+00:00)
+WARNING:elasticsearch:GET http://localhost:9200/users/_search [status:404 request:0.004s]
+ERROR:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:28 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/eoin/.local/lib/python2.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/home/eoin/Documents/week-in-music-xyz/api/app/spotify_functions.py", line 35, in check_is_playing
+    users = es.search(index="users", body={"query": {"match_all": {}}})
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 805, in search
+    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/transport.py", line 350, in perform_request
+    timeout=timeout,
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 257, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/eoin/.local/lib/python2.7/site-packages/elasticsearch/connection/base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+NotFoundError: NotFoundError(404, u'index_not_found_exception', u'no such index', users, index_or_alias)
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:201 request:0.253s]
+INFO:root:Added user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:werkzeug:127.0.0.1 - - [07/Oct/2019 17:01:24] "GET /callback?code=AQAj102Vr4ymJSZ0o4-ZZmIH7TzKEMW2f2Eaz1_YU3MWK2aU3Je6jwgBfJAu5mWOuTsz0-cTklKp9d5Z2W2m5MvxXlsKMuuAJzvpspwjzsj57MzqnRiHMZf51kxDyFGI6IsdDyQ2HYzYdY9kWKj3616eKC1rueIzQig5PNY8cBwBI1LTfZBcdt9wYPFApxq1VDcSvVrXNZaC55EP22UKgFbvswkS0uNATFg-qhbjawjEVMJ_2JA_O5IqVnW8rhLmSQ&state=daily%3Aeoinoreilly30%40gmail.com HTTP/1.1" 200 -
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:28 UTC)" (scheduled at 2019-10-07 16:01:28.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.064s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.017s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:33 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:38 UTC)" (scheduled at 2019-10-07 16:01:33.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.043s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:38 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:43 UTC)" (scheduled at 2019-10-07 16:01:38.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.011s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:43 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:48 UTC)" (scheduled at 2019-10-07 16:01:43.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.043s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:48 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:53 UTC)" (scheduled at 2019-10-07 16:01:48.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.012s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:53 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:58 UTC)" (scheduled at 2019-10-07 16:01:53.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.043s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:01:58 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:03 UTC)" (scheduled at 2019-10-07 16:01:58.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.042s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:03 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:08 UTC)" (scheduled at 2019-10-07 16:02:03.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.042s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:08 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:13 UTC)" (scheduled at 2019-10-07 16:02:08.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.041s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:13 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:18 UTC)" (scheduled at 2019-10-07 16:02:13.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.008s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.042s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:18 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:23 UTC)" (scheduled at 2019-10-07 16:02:18.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:root:paused for user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:23 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:28 UTC)" (scheduled at 2019-10-07 16:02:23.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.008s]
+INFO:root:paused for user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:28 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:33 UTC)" (scheduled at 2019-10-07 16:02:28.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.011s]
+INFO:root:paused for user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:33 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:38 UTC)" (scheduled at 2019-10-07 16:02:33.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.007s]
+INFO:root:paused for user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:38 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:43 UTC)" (scheduled at 2019-10-07 16:02:38.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:root:paused for user Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:43 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:48 UTC)" (scheduled at 2019-10-07 16:02:43.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.043s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:48 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:53 UTC)" (scheduled at 2019-10-07 16:02:48.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.041s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:53 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:58 UTC)" (scheduled at 2019-10-07 16:02:53.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.042s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:58 UTC)" executed successfully
+INFO:apscheduler.executors.default:Running job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:02:58 UTC)" (scheduled at 2019-10-07 16:02:58.254803+00:00)
+INFO:elasticsearch:GET http://localhost:9200/users/_search [status:200 request:0.006s]
+INFO:elasticsearch:POST http://localhost:9200/users/user/Eoin+O%27Reilly-eoinoreilly30%40gmail.com [status:200 request:0.012s]
+INFO:root:listening time updated for Eoin O'Reilly-eoinoreilly30@gmail.com
+INFO:apscheduler.executors.default:Job "check_is_playing (trigger: interval[0:00:05], next run at: 2019-10-07 16:03:03 UTC)" executed successfully

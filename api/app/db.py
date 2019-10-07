@@ -1,6 +1,9 @@
 from elasticsearch import Elasticsearch
+import logging
 
 es = Elasticsearch()
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 
 def add_user(user_id, access_token, refresh_token, email, scheduling_type):
@@ -18,3 +21,5 @@ def add_user(user_id, access_token, refresh_token, email, scheduling_type):
     }
 
     response = es.index(index='users', doc_type="user", id=id, body=doc)
+
+    logging.info('Added user ' + id)

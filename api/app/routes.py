@@ -1,13 +1,17 @@
 from flask import Flask, redirect, request
 from apscheduler.schedulers.background import BackgroundScheduler
-import requests, config, db, threading, spotify_functions, time, smtp_email
+import requests, config, db, threading, spotify_functions, time, smtp_email, logging
 
 app = Flask(__name__)
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 
 @app.route('/')
 @app.route('/signup/<state>')
 def signup(state):
+    logging.info('Signing up ' + state)
+
     url = ('https://accounts.spotify.com/authorize?client_id=' + config.client_id
            + '&response_type=code&redirect_uri=' + config.redirect_uri
            + '&scope=' + config.scope

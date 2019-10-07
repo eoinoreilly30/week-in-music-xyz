@@ -1,7 +1,9 @@
 from elasticsearch import Elasticsearch
-import requests, config
+import requests, config, logging
 
 es = Elasticsearch()
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 
 def renew_access_token(user_id):
@@ -20,13 +22,13 @@ def renew_access_token(user_id):
     try:
         document['refresh_token'] = token_response['refresh_token']
     except KeyError:
-        print('no refresh_token')
+        logging.info('no refresh_token for ' + user_id)
 
     document['access_token'] = access_token
 
     update_response = es.index(index='users', doc_type="user", id=user_id, body=document)
 
-    print('access_token' + update_response)
+    logging.info('access_token ' + update_response + ' for ' + user_id)
 
 
 def check_is_playing():
@@ -48,8 +50,8 @@ def check_is_playing():
                 if player_response.json()['is_playing']:
                     document['playing_time_today_seconds'] += config.player_polling_time_seconds
                     update_result = es.index(index="users", doc_type='user', id=user_id, body=document)['result']
-                    print('listening time ' + update_result + ' for ' + user_id)
+                    logging.info('listening time ' + update_result + ' for ' + user_id)
                 else:
-                    print('paused for user ' + user_id)
+                    logging.info('paused for user ' + user_id)
             else:
-                print('no player for user ' + user_id)
+                logging.info('no player for user ' + user_id)

@@ -1,9 +1,11 @@
-import smtplib, ssl, config
+import smtplib, ssl, config, logging
 from elasticsearch import Elasticsearch
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 es = Elasticsearch()
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 intervals = (
     ('weeks', 604800),  # 60 * 60 * 24 * 7
@@ -28,7 +30,7 @@ def display_time(seconds, granularity=2):
 
 
 def send_email(user_id):
-    print('sending email to ' + user_id)
+    logging.info('sending email to ' + user_id)
 
     user = es.get(index="users", doc_type="user", id=user_id)['_source']
     listening_time = display_time(user['playing_time_today_seconds'], 5)
@@ -50,7 +52,7 @@ def send_email(user_id):
             config.email, receiver_email, message.as_string()
         )
 
-    print('sent')
+    logging.info('sent to ' + user_id)
 
 
 def email_scheduler():
