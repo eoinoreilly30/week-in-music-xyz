@@ -37,6 +37,13 @@
                     GO
                 </a>
             </div>
+
+            <div class="github">
+                <a href='https://github.com/eoinoreilly30/week-in-music-xyz'
+                   style="text-decoration: none; color: white">
+                    GitHub
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -55,6 +62,10 @@
 </script>
 
 <style>
+    .github {
+        margin-top: 80px
+    }
+
     input {
         background: transparent;
         text-align: center;
