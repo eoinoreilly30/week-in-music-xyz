@@ -16,8 +16,7 @@ def add_user(user_id, access_token, refresh_token, email, scheduling_type):
         'refresh_token': refresh_token,
         'email': email,
         'scheduling_type': scheduling_type,
-        'playing_time_today_seconds': 0,
-        'total_playing_time': {}
+        'playing_time_by_day': {}
     }
 
     response = es.index(index='users', doc_type="user", id=id, body=doc)

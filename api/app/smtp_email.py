@@ -1,7 +1,8 @@
-import smtplib, ssl, config, logging
+import smtplib, ssl, config, logging, time
 from elasticsearch import Elasticsearch
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from datetime import date
 
 es = Elasticsearch()
 
@@ -28,13 +29,19 @@ def display_time(seconds, granularity=2):
             result.append("{} {}".format(value, name))
     return ', '.join(result[:granularity])
 
+def get_listening_time(user):
+    try:
+        return display_time(user['playing_time_by_day'][date.today().strftime("%j")], 5)
+    except KeyError:
+        return 0
 
 def send_email(user_id):
     logging.info('sending email to ' + user_id)
 
     user = es.get(index="users", doc_type="user", id=user_id)['_source']
-    listening_time = display_time(user['playing_time_today_seconds'], 5)
+
     receiver_email = user['email']
+    listening_time = get_listening_time(user)
 
     message = MIMEMultipart("alternative")
     message["Subject"] = listening_time + ' listened'
