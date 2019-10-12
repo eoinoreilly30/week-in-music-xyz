@@ -4,7 +4,8 @@ import requests, config, db, threading, spotify_functions, time, smtp_email, log
 
 app = Flask(__name__)
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
+logging.basicConfig(level=logging.INFO, filename='app.log', format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 @app.route('/')
@@ -51,6 +52,8 @@ def callback():
 
 
 if __name__ == '__main__':
+    logging.info("Begin")
+
     scheduler = BackgroundScheduler(timezone='utc')
     scheduler.add_job(spotify_functions.check_is_playing, 'interval', seconds=config.player_polling_time_seconds)
     # scheduler.add_job(smtp_email.email_scheduler, 'cron', hour=19)

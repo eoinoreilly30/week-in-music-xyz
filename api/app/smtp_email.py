@@ -6,8 +6,6 @@ from datetime import date
 
 es = Elasticsearch()
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
-
 intervals = (
     ('weeks', 604800),  # 60 * 60 * 24 * 7
     ('days', 86400),  # 60 * 60 * 24
@@ -29,11 +27,13 @@ def display_time(seconds, granularity=2):
             result.append("{} {}".format(value, name))
     return ', '.join(result[:granularity])
 
+
 def get_listening_time(user):
     try:
         return display_time(user['playing_time_by_day'][date.today().strftime("%j")], 5)
     except KeyError:
         return 0
+
 
 def send_email(user_id):
     logging.info('sending email to ' + user_id)
@@ -48,7 +48,7 @@ def send_email(user_id):
     message["From"] = config.email
     message["To"] = receiver_email
 
-    html = "<html><body><p>You've listened to " + listening_time + " of music</p></body></html>"
+    html = "<html><body><p>You've listened to " + listening_time + " of music today</p></body></html>"
 
     message.attach(MIMEText(html, "html"))
 

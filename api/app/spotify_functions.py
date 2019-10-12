@@ -4,8 +4,6 @@ from datetime import date
 
 es = Elasticsearch()
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
-
 
 def renew_access_token(user_id):
     document = es.get(index="users", doc_type="user", id=user_id)['_source']
@@ -49,9 +47,11 @@ def check_is_playing():
             if player_response.text:
                 if player_response.json()['is_playing']:
                     try:
-                        document['playing_time_by_day'][date.today().strftime("%j")] += config.player_polling_time_seconds
+                        document['playing_time_by_day'][
+                            date.today().strftime("%j")] += config.player_polling_time_seconds
                     except KeyError:
-                        document['playing_time_by_day'][date.today().strftime("%j")] = config.player_polling_time_seconds
+                        document['playing_time_by_day'][
+                            date.today().strftime("%j")] = config.player_polling_time_seconds
 
                     update_result = es.index(index="users", doc_type='user', id=user_id, body=document)['result']
                     logging.info('listening time ' + update_result + ' for ' + user_id)

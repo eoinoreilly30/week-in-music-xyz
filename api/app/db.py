@@ -3,8 +3,6 @@ import logging
 
 es = Elasticsearch()
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
-
 
 def add_user(user_id, access_token, refresh_token, email, scheduling_type):
     # TODO: check if user exists
