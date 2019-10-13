@@ -2,6 +2,8 @@ venv
 /api/app/config.py
 /api/app.log
 *.pyc
+*.deb
+
 
 .DS_Store
 node_modules
