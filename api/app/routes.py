@@ -56,8 +56,8 @@ if __name__ == '__main__':
 
     scheduler = BackgroundScheduler(timezone='utc')
     scheduler.add_job(spotify_functions.check_is_playing, 'interval', seconds=config.player_polling_time_seconds)
-    # scheduler.add_job(smtp_email.email_scheduler, 'cron', hour=19)
-    scheduler.add_job(smtp_email.email_scheduler, 'interval', seconds=10)
+    scheduler.add_job(smtp_email.email_scheduler, 'cron', hour=19)
+    # scheduler.add_job(smtp_email.email_scheduler, 'interval', seconds=10)
     scheduler.start()
 
     try:
